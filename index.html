@@ -53,17 +53,27 @@
 
 <script>
     const allQuestions = [
+        // HEALTH & SAFETY
         { q: "Which act provides the primary framework for H&S in the UK?", options: ["RIDDOR 2012", "Health and Safety at Work Act 1974", "PUWER 1998"], correct: 1, info: "The 1974 Act is the primary law." },
-        { q: "Who is responsible for providing PPE free of charge?", options: ["The Employee", "The Union", "The Employer"], correct: 2, info: "Employers must provide PPE free of charge." },
         { q: "What is the mandatory noise level threshold for ear protection?", options: ["75dB", "80dB", "85dB"], correct: 1, info: "Mandatory when greater than 80dB." },
-        { q: "What color is a 'Warning' sign?", options: ["Blue", "Yellow with black symbol", "Green"], correct: 1, info: "Warning signs are black symbols on yellow." },
-        { q: "What is the maximum time a bio-hazard bag can be left in an area?", options: ["24 Hours", "End of the current shift", "Until full"], correct: 1, info: "Must not be left longer than the end of the shift." },
+        { q: "What color is a 'Warning' sign?", options: ["Blue", "Yellow with black symbol", "Green"], correct: 1, info: "Warning signs are black symbols on yellow background." },
+        
+        // AIRCRAFT SAFETY
         { q: "What must be removed before opening a passenger door?", options: ["Safety wire", "Girt bar from floor mounts", "Locking pin"], correct: 1, info: "The girt bar must be removed to prevent slide deployment." },
         { q: "What must be attached to a pulled circuit breaker?", options: ["DANGER tag", "DO-NOT-OPERATE label", "Yellow tape"], correct: 1, info: "A DO-NOT-OPERATE label is mandatory." },
-        { q: "What is the maximum 'pigtail' length for safety wire?", options: ["1/4 to 1/2 inch", "1 inch", "2 inches"], correct: 0, info: "Safety wire pigtails should be 1/4 to 1/2 inch long with 3 to 6 twists." },
-        { q: "What is the golden rule of oxygen system safety?", options: ["Keep it near heat", "Keep it free from oil and grease", "Always use WD40"], correct: 1, info: "Oxygen reacts violently (explosively) with petroleum-based grease and oils." },
-        { q: "What phenomenon is caused by over-torquing panel fasteners?", options: ["Quilting", "Fretting", "Rust"], correct: 0, info: "Quilting is the drawing-in of the skin between fasteners, which ruins aerodynamics." }
-        // ... (Add more questions following this exact format)
+        { q: "Flashing red Anti-Collision lights warn ground staff to:", options: ["Approach with care", "Do not approach the aircraft", "Start the engines"], correct: 1, info: "Flashing red lights mean do not approach." },
+
+        // LOCKING
+        { q: "What is the standard diameter for safety wire on general hardware?", options: ["0.020", "0.032", "0.040"], correct: 1, info: "0.032 inch is the most commonly used diameter." },
+        { q: "How many twists per inch are required for 0.032 wire?", options: ["5-7", "7-10", "10-12"], correct: 1, info: "The standard is 7 to 10 twists per inch." },
+        
+        // STORAGE
+        { q: "Nitrogen gas cylinders are color-coded:", options: ["Black", "White", "Maroon"], correct: 0, info: "Nitrogen bottles are black in the hangar environment." },
+        { q: "What is the golden rule of oxygen system safety?", options: ["Keep it near heat", "Keep it free from oil and grease", "Store with fuel"], correct: 1, info: "Oxygen reacts explosively with petroleum-based grease and oils." },
+
+        // LUBRICATION
+        { q: "What happens if you mix two different types of grease?", options: ["Improved performance", "Potential chemical reaction and loss of properties", "No change"], correct: 1, info: "Mixing can cause grease to thin or harden, causing failure." },
+        { q: "What is 'galling'?", options: ["Surface damage from friction/heat", "A type of paint", "A cleaning tool"], correct: 0, info: "Galling occurs when metal cold-welds due to lack of lube." }
     ];
 
     let currentIdx = 0;
@@ -71,3 +81,69 @@
 
     function loadQuestion() {
         const q = allQuestions[currentIdx];
+        document.getElementById("current-num").innerText = currentIdx + 1;
+        document.getElementById("total-num").innerText = allQuestions.length;
+        document.getElementById("q-text").innerText = q.q;
+        document.getElementById("progress-fill").style.width = ((currentIdx) / allQuestions.length * 100) + "%";
+        
+        const list = document.getElementById("options-list");
+        list.innerHTML = "";
+        q.options.forEach((opt, i) => {
+            const div = document.createElement("div");
+            div.className = "option";
+            div.innerHTML = `<input type="radio" name="answer" id="opt${i}" value="${i}"><label for="opt${i}">${opt}</label>`;
+            div.onclick = () => {
+                const radio = document.getElementById(`opt${i}`);
+                if (radio) radio.checked = true;
+            };
+            list.appendChild(div);
+        });
+
+        document.getElementById("feedback-area").style.display = "none";
+        document.getElementById("submit-btn").style.display = "block";
+        document.getElementById("next-btn").style.display = "none";
+    }
+
+    function checkAnswer() {
+        const selected = document.querySelector('input[name="answer"]:checked');
+        if (!selected) {
+            alert("Please select an answer!");
+            return;
+        }
+
+        const userVal = parseInt(selected.value);
+        const q = allQuestions[currentIdx];
+        const feedback = document.getElementById("feedback-area");
+
+        if (userVal === q.correct) {
+            score++;
+            feedback.className = "feedback correct-msg";
+            feedback.innerText = "CORRECT! " + q.info;
+        } else {
+            feedback.className = "feedback wrong-msg";
+            feedback.innerText = "INCORRECT. The correct answer was: " + q.options[q.correct] + ". " + q.info;
+        }
+
+        feedback.style.display = "block";
+        document.getElementById("submit-btn").style.display = "none";
+        document.getElementById("next-btn").style.display = "block";
+    }
+
+    function nextQuestion() {
+        currentIdx++;
+        if (currentIdx < allQuestions.length) {
+            loadQuestion();
+        } else {
+            document.getElementById("quiz-ui").style.display = "none";
+            document.getElementById("final-score").style.display = "block";
+            document.getElementById("score-val").innerText = score;
+            document.getElementById("total-final").innerText = allQuestions.length;
+        }
+    }
+
+    // Initialize the quiz
+    window.onload = loadQuestion;
+</script>
+
+</body>
+</html>
