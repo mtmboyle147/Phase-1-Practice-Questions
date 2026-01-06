@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ryanair AMC Phase 1 Practice Exam</title>
+    <style>
+        :root { --primary: #003399; --bg: #ffffff; --text: #212121; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; max-width: 800px; margin: 2rem auto; padding: 0 1rem; color: var(--text); background: var(--bg); }
+        h1 { color: var(--primary); border-bottom: 3px solid var(--primary); padding-bottom: 10px; }
+        .question-block { margin-bottom: 2rem; border: 1px solid #ddd; padding: 1.5rem; border-radius: 8px; box-shadow: 2px 2px 5px rgba(0,0,0,0.05); }
+        legend { font-weight: bold; font-size: 1.1rem; padding: 0 10px; }
+        .option { margin: 0.8rem 0; display: flex; align-items: center; }
+        input[type="radio"] { width: 20px; height: 20px; margin-right: 12px; cursor: pointer; }
+        label { cursor: pointer; font-size: 1rem; }
+        button { background: var(--primary); color: white; padding: 12px 24px; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; font-size: 1rem; margin-top: 1rem; }
+        button:hover { background: #002266; text-decoration: underline; }
+        #result-area { margin-top: 2rem; font-weight: bold; font-size: 1.2rem; padding: 1rem; border-radius: 4px; display: none; }
+        .correct { color: #2e7d32; border: 1px solid #2e7d32; background: #e8f5e9; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Ryanair AMC: Phase 1 Practice Quiz</h1>
+    <p>Select the best answer for each question based on your student notes.</p>
+</header>
+
+<main>
+    <form id="quizForm">
+        <div class="question-block">
+            <fieldset>
+                <legend>6. What is the correct way to clean an aircraft cable?</legend>
+                <div class="option">
+                    <input type="radio" id="q6a" name="q6" value="0"><label for="q6a">Immerse in grease solvent</label>
+                </div>
+                <div class="option">
+                    <input type="radio" id="q6b" name="q6" value="1"><label for="q6b">Use a dry cloth to remove surface dirt</label>
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="question-block">
+            <fieldset>
+                <legend>7. How should tyres be stored to prevent distortion?</legend>
+                <div class="option">
+                    <input type="radio" id="q7a" name="q7" value="0"><label for="q7a">Stacked horizontally</label>
+                </div>
+                <div class="option">
+                    <input type="radio" id="q7b" name="q7" value="1"><label for="q7b">Vertically in special racks</label>
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="question-block">
+            <fieldset>
+                <legend>8. What is the rule for tightening a circular pattern of fasteners?</legend>
+                <div class="option">
+                    <input type="radio" id="q8a" name="q8" value="0"><label for="q8a">Tighten in sequence (clockwise)</label>
+                </div>
+                <div class="option">
+                    <input type="radio" id="q8b" name="q8" value="1"><label for="q8b">Tighten opposite pairs</label>
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="question-block">
+            <fieldset>
+                <legend>9. What happens if the wrong lubricant is used on flight controls?</legend>
+                <div class="option">
+                    <input type="radio" id="q9a" name="q9" value="1"><label for="q9a">Controls may freeze at high altitude</label>
+                </div>
+                <div class="option">
+                    <input type="radio" id="q9b" name="q9" value="0"><label for="q9b">The lubricant will evaporate instantly</label>
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="question-block">
+            <fieldset>
+                <legend>10. How are vinyl film decals removed?</legend>
+                <div class="option">
+                    <input type="radio" id="q10a" name="q10" value="0"><label for="q10a">Sandpaper and water</label>
+                </div>
+                <div class="option">
+                    <input type="radio" id="q10b" name="q10" value="1"><label for="q10b">MEK and a plastic scraper</label>
+                </div>
+            </fieldset>
+        </div>
+
+        <button type="button" onclick="calculateScore()">Submit Answers</button>
+    </form>
+
+    <div id="result-area" aria-live="polite"></div>
+</main>
+
+<script>
+    function calculateScore() {
+        const form = document.getElementById('quizForm');
+        const results = document.getElementById('result-area');
+        let score = 0;
+        let total = 3;
+        
+        const answers = new FormData(form);
+        for (let value of answers.values()) {
+            score += parseInt(value);
+        }
+
+        results.style.display = 'block';
+        results.className = 'correct';
+        results.textContent = `You scored ${score} out of ${total}!`;
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+</script>
+
+</body>
+</html>
