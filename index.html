@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ryanair AMC Phase 1: Mastery Exam</title>
+    <title>Ryanair AMC Phase 1 Mastery</title>
     <style>
         :root { --ry-blue: #003399; --ry-yellow: #f1c40f; --bg: #f4f7f6; }
         body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; max-width: 800px; margin: 2rem auto; padding: 1rem; background: var(--bg); color: #333; }
@@ -47,43 +47,30 @@
     <div id="final-score">
         <h2>Section Complete!</h2>
         <p style="font-size: 2rem;">Score: <span id="score-val">0</span> / <span id="total-final">0</span></p>
-        <button onclick="location.reload()" style="background: var(--ry-blue); color:white;">Back to Start</button>
+        <button onclick="location.reload()" style="background: var(--ry-blue); color:white;">Restart Quiz</button>
     </div>
 </div>
 
 <script>
     const allQuestions = [
-        // HEALTH & SAFETY
         { q: "Which act provides the primary framework for H&S in the UK?", options: ["RIDDOR 2012", "Health and Safety at Work Act 1974", "PUWER 1998"], correct: 1, info: "The 1974 Act is the primary law." },
         { q: "What is the mandatory noise level threshold for ear protection?", options: ["75dB", "80dB", "85dB"], correct: 1, info: "Mandatory when greater than 80dB." },
         { q: "What color is a 'Warning' sign?", options: ["Blue", "Yellow with black symbol", "Green"], correct: 1, info: "Warning signs are black symbols on yellow background." },
-        
-        // AIRCRAFT SAFETY
         { q: "What must be removed before opening a passenger door?", options: ["Safety wire", "Girt bar from floor mounts", "Locking pin"], correct: 1, info: "The girt bar must be removed to prevent slide deployment." },
         { q: "What must be attached to a pulled circuit breaker?", options: ["DANGER tag", "DO-NOT-OPERATE label", "Yellow tape"], correct: 1, info: "A DO-NOT-OPERATE label is mandatory." },
         { q: "Flashing red Anti-Collision lights warn ground staff to:", options: ["Approach with care", "Do not approach the aircraft", "Start the engines"], correct: 1, info: "Flashing red lights mean do not approach." },
-
-        // LOCKING DEVICES
-        { q: "What is the primary purpose of a locking device?", options: ["To make the aircraft look professional", "To prevent fasteners from loosening due to vibration", "To increase weight"], correct: 1, info: "Locking devices prevent parts from vibrating loose during flight." },
-        { q: "Which way should the loop of a safety wire pull?", options: ["To loosen the bolt", "In the direction that tightens the bolt", "Straight up"], correct: 1, info: "Safety wire must always pull the fastener in the tightening direction." },
-        { q: "What is the maximum 'pigtail' length for safety wire?", options: ["1/4 to 1/2 inch (3 to 6 twists)", "1 inch", "2 inches"], correct: 0, info: "Safety wire pigtails should be 1/4 to 1/2 inch long." },
-        
-        // STORAGE AND HANDLING
-        { q: "What is the golden rule of oxygen system safety?", options: ["Keep it near heat", "Keep it free from oil and grease", "Always use WD40"], correct: 1, info: "Oxygen reacts explosively with petroleum-based grease and oils." },
+        { q: "What is the primary purpose of a locking device?", options: ["To make it professional", "To prevent fasteners from loosening due to vibration", "To increase weight"], correct: 1, info: "Locking devices prevent parts from vibrating loose." },
+        { q: "Which way should the loop of a safety wire pull?", options: ["To loosen", "In the direction that tightens the bolt", "Straight up"], correct: 1, info: "Safety wire must pull in the tightening direction." },
+        { q: "What is the maximum 'pigtail' length for safety wire?", options: ["1/4 to 1/2 inch (3 to 6 twists)", "1 inch", "2 inches"], correct: 0, info: "Pigtails should be 1/4 to 1/2 inch long." },
+        { q: "What is the golden rule of oxygen system safety?", options: ["Keep it near heat", "Keep it free from oil and grease", "Use WD40"], correct: 1, info: "Oxygen reacts explosively with grease/oil." },
         { q: "Nitrogen cylinders are color-coded...", options: ["Black", "White", "Maroon"], correct: 0, info: "In the hangar, Nitrogen bottles are black." },
-        { q: "How should tires be stored to prevent distortion?", options: ["Stacked flat", "Vertically in racks with support", "Outside in the sun"], correct: 1, info: "Vertical storage in racks prevents the tread from flat-spotting." },
-
-        // PANELS
-        { q: "What phenomenon is caused by over-torquing panel fasteners?", options: ["Quilting", "Fretting", "Rust"], correct: 0, info: "Quilting is the drawing-in of the skin between fasteners, ruining aerodynamics." },
-        { q: "In what pattern should you tighten a circular panel?", options: ["Clockwise", "Opposite pairs", "Bottom to top"], correct: 1, info: "Tightening opposite pairs ensures the panel seats flat without warping." },
-
-        // LUBRICATION
-        { q: "What tool is used to apply grease to a zerk fitting?", options: ["A brush", "A grease gun", "A spray can"], correct: 1, info: "Grease guns provide the pressure needed to force lubricant into bearings." },
-        { q: "What is 'galling'?", options: ["A type of paint", "Surface damage caused by friction/heat", "A cleaning method"], correct: 1, info: "Galling occurs when metal surfaces 'cold weld' together due to lack of lube." },
-
-        // SURFACE FINISHING
-        { q: "How are vinyl decals removed?", options: ["Sanding", "Cloth with MEK and a plastic scraper", "Burning them off"], correct: 1, info: "MEK softens the adhesive, allowing safe removal with a plastic scraper." },
-        { q: "What is the purpose of a 'Tack Rag'?", options: ["Cleaning tools", "Removing dust just before painting", "Applying oil"], correct: 1, info: "Tack rags grab fine dust particles before the paint is applied." }
+        { q: "How should tires be stored to prevent distortion?", options: ["Stacked flat", "Vertically in racks", "In the sun"], correct: 1, info: "Vertical storage prevents flat-spotting." },
+        { q: "What phenomenon is caused by over-torquing panel fasteners?", options: ["Quilting", "Fretting", "Rust"], correct: 0, info: "Quilting ruins aerodynamics." },
+        { q: "In what pattern should you tighten a circular panel?", options: ["Clockwise", "Opposite pairs", "Bottom to top"], correct: 1, info: "Opposite pairs ensure the panel seats flat." },
+        { q: "What tool is used to apply grease to a zerk fitting?", options: ["A brush", "A grease gun", "A spray can"], correct: 1, info: "Grease guns provide required pressure." },
+        { q: "What is 'galling'?", options: ["A type of paint", "Surface damage from friction/heat", "A cleaning method"], correct: 1, info: "Galling is 'cold welding' from lack of lube." },
+        { q: "How are vinyl decals removed?", options: ["Sanding", "Cloth with MEK and plastic scraper", "Burning"], correct: 1, info: "MEK softens adhesive for safe removal." },
+        { q: "What is the purpose of a 'Tack Rag'?", options: ["Cleaning tools", "Removing dust before painting", "Applying oil"], correct: 1, info: "Tack rags grab fine dust particles." }
     ];
 
     let currentIdx = 0;
@@ -94,7 +81,7 @@
         document.getElementById("current-num").innerText = currentIdx + 1;
         document.getElementById("total-num").innerText = allQuestions.length;
         document.getElementById("q-text").innerText = q.q;
-        document.getElementById("progress-fill").style.width = ((currentIdx) / allQuestions.length * 100) + "%";
+        document.getElementById("progress-fill").style.width = (currentIdx / allQuestions.length * 100) + "%";
         
         const list = document.getElementById("options-list");
         list.innerHTML = "";
@@ -102,10 +89,7 @@
             const div = document.createElement("div");
             div.className = "option";
             div.innerHTML = `<input type="radio" name="answer" id="opt${i}" value="${i}"><label for="opt${i}">${opt}</label>`;
-            div.onclick = () => {
-                const radio = document.getElementById(`opt${i}`);
-                if (radio) radio.checked = true;
-            };
+            div.onclick = () => { document.getElementById(`opt${i}`).checked = true; };
             list.appendChild(div);
         });
 
@@ -116,10 +100,7 @@
 
     function checkAnswer() {
         const selected = document.querySelector('input[name="answer"]:checked');
-        if (!selected) {
-            alert("Please select an answer!");
-            return;
-        }
+        if (!selected) return alert("Select an answer!");
 
         const userVal = parseInt(selected.value);
         const q = allQuestions[currentIdx];
@@ -131,7 +112,7 @@
             feedback.innerText = "CORRECT! " + q.info;
         } else {
             feedback.className = "feedback wrong-msg";
-            feedback.innerText = "INCORRECT. The correct answer was: " + q.options[q.correct] + ". " + q.info;
+            feedback.innerText = "INCORRECT. Answer: " + q.options[q.correct] + ". " + q.info;
         }
 
         feedback.style.display = "block";
@@ -151,7 +132,6 @@
         }
     }
 
-    // Start the quiz when the page loads
     window.onload = loadQuestion;
 </script>
 
