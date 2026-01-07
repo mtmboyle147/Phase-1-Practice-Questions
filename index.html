@@ -286,15 +286,35 @@
             ];
 
 
+    // This will hold our selection of 30 random questions
+    let quizPool = [];
     let currentIdx = 0;
     let score = 0;
 
+    function initializeQuiz() {
+        // 1. Clone the array so we don't destroy the original data
+        let shuffled = [...allQuestions];
+        
+        // 2. Fisher-Yates Shuffle Algorithm
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        
+        // 3. Select the first 30 questions from the shuffled list
+        quizPool = shuffled.slice(0, 30);
+        
+        currentIdx = 0;
+        score = 0;
+        loadQuestion();
+    }
+
     function loadQuestion() {
-        const q = allQuestions[currentIdx];
+        const q = quizPool[currentIdx]; // Use the random pool
         document.getElementById("current-num").innerText = currentIdx + 1;
-        document.getElementById("total-num").innerText = allQuestions.length;
+        document.getElementById("total-num").innerText = quizPool.length;
         document.getElementById("q-text").innerText = q.q;
-        document.getElementById("progress-fill").style.width = (currentIdx / allQuestions.length * 100) + "%";
+        document.getElementById("progress-fill").style.width = (currentIdx / quizPool.length * 100) + "%";
         
         const list = document.getElementById("options-list");
         list.innerHTML = "";
@@ -316,7 +336,7 @@
         if (!selected) return alert("Select an answer!");
 
         const userVal = parseInt(selected.value);
-        const q = allQuestions[currentIdx];
+        const q = quizPool[currentIdx]; // Use the random pool
         const feedback = document.getElementById("feedback-area");
 
         if (userVal === q.correct) {
@@ -335,17 +355,18 @@
 
     function nextQuestion() {
         currentIdx++;
-        if (currentIdx < allQuestions.length) {
+        if (currentIdx < quizPool.length) {
             loadQuestion();
         } else {
             document.getElementById("quiz-ui").style.display = "none";
             document.getElementById("final-score").style.display = "block";
             document.getElementById("score-val").innerText = score;
-            document.getElementById("total-final").innerText = allQuestions.length;
+            document.getElementById("total-final").innerText = quizPool.length;
         }
     }
 
-    window.onload = loadQuestion;
+    // Call initializeQuiz instead of loadQuestion on start
+    window.onload = initializeQuiz;
 </script>
 
 </body>
