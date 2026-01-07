@@ -53,24 +53,11 @@
 
 <script>
     const allQuestions = [
-        { q: "Which act provides the primary framework for H&S in the UK?", options: ["RIDDOR 2012", "Health and Safety at Work Act 1974", "PUWER 1998"], correct: 1, info: "The 1974 Act is the primary law." },
-        { q: "What is the mandatory noise level threshold for ear protection?", options: ["75dB", "80dB", "85dB"], correct: 1, info: "Mandatory when greater than 80dB." },
-        { q: "What color is a 'Warning' sign?", options: ["Blue", "Yellow with black symbol", "Green"], correct: 1, info: "Warning signs are black symbols on yellow background." },
-        { q: "What must be removed before opening a passenger door?", options: ["Safety wire", "Girt bar from floor mounts", "Locking pin"], correct: 1, info: "The girt bar must be removed to prevent slide deployment." },
-        { q: "What must be attached to a pulled circuit breaker?", options: ["DANGER tag", "DO-NOT-OPERATE label", "Yellow tape"], correct: 1, info: "A DO-NOT-OPERATE label is mandatory." },
-        { q: "Flashing red Anti-Collision lights warn ground staff to:", options: ["Approach with care", "Do not approach the aircraft", "Start the engines"], correct: 1, info: "Flashing red lights mean do not approach." },
-        { q: "What is the primary purpose of a locking device?", options: ["To make it professional", "To prevent fasteners from loosening due to vibration", "To increase weight"], correct: 1, info: "Locking devices prevent parts from vibrating loose." },
-        { q: "Which way should the loop of a safety wire pull?", options: ["To loosen", "In the direction that tightens the bolt", "Straight up"], correct: 1, info: "Safety wire must pull in the tightening direction." },
-        { q: "What is the maximum 'pigtail' length for safety wire?", options: ["1/4 to 1/2 inch (3 to 6 twists)", "1 inch", "2 inches"], correct: 0, info: "Pigtails should be 1/4 to 1/2 inch long." },
-        { q: "What is the golden rule of oxygen system safety?", options: ["Keep it near heat", "Keep it free from oil and grease", "Use WD40"], correct: 1, info: "Oxygen reacts explosively with grease/oil." },
-        { q: "Nitrogen cylinders are color-coded...", options: ["Black", "White", "Maroon"], correct: 0, info: "In the hangar, Nitrogen bottles are black." },
-        { q: "How should tires be stored to prevent distortion?", options: ["Stacked flat", "Vertically in racks", "In the sun"], correct: 1, info: "Vertical storage prevents flat-spotting." },
-        { q: "What phenomenon is caused by over-torquing panel fasteners?", options: ["Quilting", "Fretting", "Rust"], correct: 0, info: "Quilting ruins aerodynamics." },
-        { q: "In what pattern should you tighten a circular panel?", options: ["Clockwise", "Opposite pairs", "Bottom to top"], correct: 1, info: "Opposite pairs ensure the panel seats flat." },
-        { q: "What tool is used to apply grease to a zerk fitting?", options: ["A brush", "A grease gun", "A spray can"], correct: 1, info: "Grease guns provide required pressure." },
-        { q: "What is 'galling'?", options: ["A type of paint", "Surface damage from friction/heat", "A cleaning method"], correct: 1, info: "Galling is 'cold welding' from lack of lube." },
-        { q: "How are vinyl decals removed?", options: ["Sanding", "Cloth with MEK and plastic scraper", "Burning"], correct: 1, info: "MEK softens adhesive for safe removal." },
-        { q: "What is the purpose of a 'Tack Rag'?", options: ["Cleaning tools", "Removing dust before painting", "Applying oil"], correct: 1, info: "Tack rags grab fine dust particles." }
+        { q: "Which regulation covers the 'Management of Health and Safety at Work'?", options: ["RIDDOR 2012", "LOLER 1998", "Regulations 1999"], correct: 2, info: "The Management of Health and Safety at Work Regulations was established in 1999." },
+        { q: "What color is a 'Prohibition' sign?", options: ["Blue", "Red crossed circle with black symbol", "Green"], correct: 1, info: "Prohibition signs signify acts that are not allowed and use a red crossed circle." },
+        { q: "What do 'Safe Condition' signs (green with white pictograms) identify?", options: ["Mandatory PPE", "Fire extinguishers", "Places of safety like first aid stations"], correct: 2, info: "Green signs identify safe behaviours or places of safety, such as first aid or safe access." },
+        { q: "What document should be handed to a doctor in the event of a chemical accident?", options: ["The Aircraft Technical Log", "The relevant MSDS", "A Risk Assessment form"], correct: 1, info: "The Material Safety Data Sheet (MSDS) provides medical staff with necessary treatment info." },
+        { q: "Bio-hazard waste must be placed in yellow bags and removed by:", options: ["The end of the week", "The end of the current shift", "Once the bag is full"], correct: 1, info: "Bio-hazard bags must not be left in the area longer than the end of the shift." },
     ];
 
     let currentIdx = 0;
