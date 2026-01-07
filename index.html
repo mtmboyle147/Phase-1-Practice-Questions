@@ -63,130 +63,28 @@
         { q: "What must be attached to a pulled circuit breaker?", options: ["DANGER tag", "DO-NOT-OPERATE label", "Yellow tape"], correct: 1, info: "A DO-NOT-OPERATE label is mandatory." },
         { q: "Flashing red Anti-Collision lights warn ground staff to:", options: ["Approach with care", "Do not approach the aircraft", "Start the engines"], correct: 1, info: "Flashing red lights mean do not approach." },
 
-        // LOCKING
-        { q: "What is the standard diameter for safety wire on general hardware?", options: ["0.020", "0.032", "0.040"], correct: 1, info: "0.032 inch is the most commonly used diameter." },
-        { q: "How many twists per inch are required for 0.032 wire?", options: ["5-7", "7-10", "10-12"], correct: 1, info: "The standard is 7 to 10 twists per inch." },
+        // LOCKING DEVICES
+        { q: "What is the primary purpose of a locking device?", options: ["To make the aircraft look professional", "To prevent fasteners from loosening due to vibration", "To increase weight"], correct: 1, info: "Locking devices prevent parts from vibrating loose during flight." },
+        { q: "Which way should the loop of a safety wire pull?", options: ["To loosen the bolt", "In the direction that tightens the bolt", "Straight up"], correct: 1, info: "Safety wire must always pull the fastener in the tightening direction." },
+        { q: "What is the maximum 'pigtail' length for safety wire?", options: ["1/4 to 1/2 inch (3 to 6 twists)", "1 inch", "2 inches"], correct: 0, info: "Safety wire pigtails should be 1/4 to 1/2 inch long." },
         
-        // STORAGE
-        { q: "Nitrogen gas cylinders are color-coded:", options: ["Black", "White", "Maroon"], correct: 0, info: "Nitrogen bottles are black in the hangar environment." },
-        { q: "What is the golden rule of oxygen system safety?", options: ["Keep it near heat", "Keep it free from oil and grease", "Store with fuel"], correct: 1, info: "Oxygen reacts explosively with petroleum-based grease and oils." },
+        // STORAGE AND HANDLING
+        { q: "What is the golden rule of oxygen system safety?", options: ["Keep it near heat", "Keep it free from oil and grease", "Always use WD40"], correct: 1, info: "Oxygen reacts explosively with petroleum-based grease and oils." },
+        { q: "Nitrogen cylinders are color-coded...", options: ["Black", "White", "Maroon"], correct: 0, info: "In the hangar, Nitrogen bottles are black." },
+        { q: "How should tires be stored to prevent distortion?", options: ["Stacked flat", "Vertically in racks with support", "Outside in the sun"], correct: 1, info: "Vertical storage in racks prevents the tread from flat-spotting." },
+
+        // PANELS
+        { q: "What phenomenon is caused by over-torquing panel fasteners?", options: ["Quilting", "Fretting", "Rust"], correct: 0, info: "Quilting is the drawing-in of the skin between fasteners, ruining aerodynamics." },
+        { q: "In what pattern should you tighten a circular panel?", options: ["Clockwise", "Opposite pairs", "Bottom to top"], correct: 1, info: "Tightening opposite pairs ensures the panel seats flat without warping." },
 
         // LUBRICATION
-        { q: "What happens if you mix two different types of grease?", options: ["Improved performance", "Potential chemical reaction and loss of properties", "No change"], correct: 1, info: "Mixing can cause grease to thin or harden, causing failure." },
-        { q: "What is 'galling'?", options: ["Surface damage from friction/heat", "A type of paint", "A cleaning tool"], correct: 0, info: "Galling occurs when metal cold-welds due to lack of lube." }
-
-        // --- REMAINING SECTIONS DATA ---
-
-        // LOCKING DEVICES AND PRACTICES (20 Qs)
-        { q: "What is the primary purpose of a locking device?", options: ["To make the aircraft look professional", "To prevent fasteners from loosening due to vibration", "To increase the weight of the assembly"], correct: 1, info: "Locking devices are essential to prevent parts from vibrating loose during flight." },
-        { q: "Which side of the torque range should you aim for when using a castellated nut?", options: ["The high side", "Exactly in the middle", "The low side"], correct: 2, info: "Always tighten to the low side of the torque range, then continue until the next slot aligns." },
-        { q: "What is the maximum 'pigtail' length for safety wire?", options: ["1/4 to 1/2 inch (3 to 6 twists)", "1 inch", "2 inches"], correct: 0, info: "Safety wire pigtails should be 1/4 to 1/2 inch long with 3 to 6 twists." },
-        { q: "How many twists per inch are required for 0.032 wire?", options: ["5-7", "7-10", "10-12"], correct: 1, info: "The standard for .032 diameter wire is 7 to 10 twists per inch." },
-        { q: "What must you NEVER do if a hole doesn't align for a split pin?", options: ["Check the torque again", "Loosen the nut to make it fit", "Use a different washer"], correct: 1, info: "Never loosen a nut to align holes; this compromises the torque integrity." },
-        { q: "Which way should the loop of a safety wire pull?", options: ["To loosen the bolt", "In the direction that tightens the bolt", "Straight up"], correct: 1, info: "Safety wire must always be installed so that the tension pulls the fastener in the tightening direction." },
-        { q: "What is a 'Friction Lock' nut?", options: ["A nut with a nylon insert", "A nut that requires safety wire", "A nut that is welded shut"], correct: 0, info: "Friction locks (like Nyloc nuts) use internal friction to prevent rotation." },
-        { q: "Can you reuse a split pin?", options: ["Yes, if it looks clean", "No, always use new split pins", "Only on non-critical parts"], correct: 1, info: "Split pins are one-time use items because the metal fatigues when bent." },
-        { q: "What tool is used to twist safety wire efficiently?", options: ["Needle nose pliers", "Wire locking pliers", "Side cutters"], correct: 1, info: "Wire locking pliers are designed specifically to pull and twist wire simultaneously." },
-        { q: "Which locking device is used for extreme heat environments?", options: ["Nyloc nuts", "Steel tab washers or safety wire", "Plastic clips"], correct: 1, info: "Nylon inserts melt in high heat; metal locking devices are mandatory." },
-        { q: "Where is 'Double Twist' wiring most commonly used?", options: ["On individual bolts", "In a series/daisy chain of fasteners", "Only on engines"], correct: 1, info: "Double twist is the standard method for wiring a series of fasteners." },
-        { q: "What is the 'Neutral' position in safety wiring?", options: ["When the wire has no tension", "When the wire is loose", "When the wire is wrapped around the head"], correct: 0, info: "Neutral wiring is acceptable only if the tightening direction cannot be achieved, but it is rare." },
-        { q: "A tab washer is locked by doing what?", options: ["Twisting it", "Bending tabs against the nut and the part", "Adding glue"], correct: 1, info: "Tab washers are locked by bending one tab over the flat of the nut and another over the component edge." },
-        { q: "What is 'pigtailing'?", options: ["A wiring error", "The final twisted end of a safety wire", "A type of screw"], correct: 1, info: "The pigtail is the end of the wire, bent back to prevent snagging or injury." },
-        { q: "Spring washers work based on what principle?", options: ["Adhesion", "Spring tension/Mechanical pressure", "Magnets"], correct: 1, info: "Spring washers provide constant pressure to maintain friction between threads." },
-        { q: "What diameter safety wire is standard for most aircraft bolts?", options: ["0.020", "0.032", "0.040"], correct: 1, info: "0.032 inch is the most commonly used diameter for general hardware." },
-        { q: "Which document specifies the safety wiring pattern for a specific part?", options: ["The Pilot's Log", "The AMM (Aircraft Maintenance Manual)", "The Store's Catalog"], correct: 1, info: "Always refer to the AMM for specific locking requirements." },
-        { q: "Safety wire should be tight enough to...", options: ["Break the wire", "Prevent any movement without vibrating", "Be loose enough to move by hand"], correct: 1, info: "Wire should be taut but not over-stressed." },
-        { q: "What happens if safety wire is installed 'backwards'?", options: ["It will help the bolt loosen", "Nothing", "It makes the bolt stronger"], correct: 0, info: "If the wire pulls in the loosening direction, vibration will help unscrew the fastener." },
-        { q: "How many times should a safety wire be twisted around a bolt head?", options: ["It shouldn't be", "It should form a 'stay' or loop around the head", "10 times"], correct: 1, info: "The wire must wrap around the head to ensure it can't slip over the top." },
-    
-        // PROTECTION, STORAGE AND HANDLING (20 Qs)
-        { q: "What is the golden rule of oxygen system safety?", options: ["Keep it near heat", "Keep it free from oil and grease", "Always use WD40"], correct: 1, info: "Oxygen reacts violently (explosively) with petroleum-based grease and oils." },
-        { q: "How should tires be stored to prevent distortion?", options: ["Stacked flat", "Vertically in racks with support", "Outside in the sun"], correct: 1, info: "Vertical storage in racks prevents the tread from flat-spotting." },
-        { q: "What is the risk of pushing a blanking bag inside a pipe?", options: ["It cleans the pipe", "It becomes a FOD hazard", "It prevents rust"], correct: 1, info: "If a blank is pushed in rather than capped over, it may be forgotten and cause system failure (FOD)." },
-        { q: "Nitrogen cylinders are color-coded...", options: ["Black", "White", "Maroon"], correct: 0, info: "In the hangar, Nitrogen bottles are black." },
-        { q: "What color tape is used for 'liquid' protective covers?", options: ["Red tape", "Vinyl tape", "Duct tape"], correct: 1, info: "Vinyl tape provides a moisture-proof seal for liquid protection." },
-        { q: "Why are oxygen generators in PSUs dangerous?", options: ["They contain acid", "They get extremely hot when activated", "They are radioactive"], correct: 1, info: "Chemical oxygen generators reach high temperatures and can cause fires if mishandled." },
-        { q: "What must be fitted to an escape slide before maintenance?", options: ["A safety pin/girt bar lock", "A parachute", "Water"], correct: 0, info: "Safety pins prevent accidental deployment which can be fatal." },
-        { q: "How should gas cylinders be secured?", options: ["Lying down", "Chained to a solid structure", "Left in the middle of the floor"], correct: 1, info: "Cylinders must be chained to prevent them from falling and becoming 'missiles' if the valve breaks." },
-        { q: "Window protection should be removed when?", options: ["Immediately upon arrival", "Just before installation or paint", "Never"], correct: 1, info: "Keep windows covered as long as possible to prevent scratches from grit and tools." },
-        { q: "Where should 'Identity Tags' be placed on removed parts?", options: ["In the mechanic's pocket", "Attached directly to the part", "On the hangar wall"], correct: 1, info: "Every part removed from an aircraft must have an ID tag attached immediately." },
-        { q: "What is the purpose of a 'Red' blanking plug?", options: ["To show the part is broken", "To draw attention to a non-normal state", "To indicate the part is new"], correct: 1, info: "Red is used for high visibility to ensure the blank is removed before flight." },
-        { q: "FOD stands for...", options: ["Fix Or Delete", "Foreign Object Debris", "Fast Operating Device"], correct: 1, info: "FOD is any object that does not belong in an aircraft system." },
-        { q: "How are PSU release pins managed?", options: ["Discarded", "Stay engaged to prevent accidental activation", "Bent into place"], correct: 1, info: "Keep pins engaged until the system is ready for use." },
-        { q: "What pressure is typical for an escape slide bottle?", options: ["100 psi", "3000 psi", "10,000 psi"], correct: 1, info: "Slide bottles are high-pressure vessels, typically around 3000 psi." },
-        { q: "What is the effect of sunlight on stored rubber parts?", options: ["It strengthens them", "It causes cracking and deterioration (Ozone/UV damage)", "No effect"], correct: 1, info: "UV light breaks down the chemical bonds in rubber and seals." },
-        { q: "A 'DO NOT OPERATE' tag is used for...", options: ["Broken tools", "Isolating systems during maintenance", "Pricing"], correct: 1, info: "These tags prevent someone from energizing a system while a mechanic is working on it." },
-        { q: "When cleaning oxygen components, use only...", options: ["Approved specialized cleaners", "Petrol", "Soap and water"], correct: 0, info: "Only use AMM-approved, non-petroleum based cleaners." },
-        { q: "Why is moisture a threat to stored engines?", options: ["It makes them heavy", "It causes internal corrosion", "It helps them start"], correct: 1, info: "Moisture leads to rust on internal bearings and cylinders." },
-        { q: "What is a 'Desiccant' bag used for?", options: ["To add weight", "To absorb moisture in packaging", "To clean parts"], correct: 1, info: "Desiccants keep the air inside a package dry to prevent corrosion." },
-        { q: "If a part is dropped, what is the mandatory action?", options: ["Wipe it and install", "Inspect for hidden damage/cracks", "Hide it"], correct: 1, info: "Dropped parts may have internal damage not visible to the eye; inspection is required." },
-    
-        // AIRCRAFT PANEL INSTALLATION & REMOVAL (20 Qs)
-        { q: "What phenomenon is caused by over-torquing panel fasteners?", options: ["Quilting", "Fretting", "Rust"], correct: 0, info: "Quilting is the drawing-in of the skin between fasteners, which ruins aerodynamics." },
-        { q: "In what pattern should you tighten a circular panel?", options: ["Clockwise", "Opposite pairs", "Bottom to top"], correct: 1, info: "Tightening opposite pairs ensures the panel seats flat without warping." },
-        { q: "What is the primary danger of using the wrong screw length?", options: ["It looks bad", "Damage to internal structures/wiring", "The aircraft gets heavier"], correct: 1, info: "A screw that is too long can pierce fuel tanks or wiring looms behind the panel." },
-        { q: "How should panels be stored when removed?", options: ["Stacked in a pile", "In protective racks to prevent scratching", "On the floor"], correct: 1, info: "Panels are fragile and expensive; storage racks prevent surface damage." },
-        { q: "Why use a plastic scraper on panel sealants?", options: ["It's cheaper", "To prevent scratching the aircraft skin", "It's faster"], correct: 1, info: "Metal scrapers create scratches that lead to stress cracks and corrosion." },
-        { q: "What is the correct torque for a panel fastener?", options: ["As tight as possible", "As specified in the AMM", "Finger tight"], correct: 1, info: "Always refer to the Aircraft Maintenance Manual (AMM) for torque values." },
-        { q: "What should be applied to panel screws to prevent seizing?", options: ["Glue", "Anti-seize compound (if approved)", "Paint"], correct: 1, info: "Anti-seize helps ensure the screws can be removed during the next check." },
-        { q: "Before installing a panel, you must perform a...", options: ["Tool check", "FOD check of the internal area", "Paint touch up"], correct: 1, info: "Ensure no tools or debris are left inside the cavity before sealing it." },
-        { q: "A 'flush' fastener is used for...", options: ["Speed", "Reducing aerodynamic drag", "Weight saving"], correct: 1, info: "Flush fasteners keep the aircraft surface smooth for better fuel efficiency." },
-        { q: "If a screw head is 'cammed out', what tool do you use?", options: ["Hammer", "Screw extractor", "Pliers"], correct: 1, info: "Screw extractors are used to remove fasteners with damaged drive heads." },
-        { q: "What identifies a structural panel from a non-structural one?", options: ["Color", "Fastener density and AMM description", "Weight"], correct: 1, info: "Structural panels usually have more fasteners and carry airframe loads." },
-        { q: "What must be replaced every time a pressure panel is removed?", options: ["The screws", "The environmental seal/gasket", "The panel itself"], correct: 1, info: "Seals must be renewed to maintain cabin pressure integrity." },
-        { q: "When using a speed brace, why maintain vertical pressure?", options: ["To go faster", "To prevent the bit from slipping and damaging the head", "To save energy"], correct: 1, info: "Vertical pressure keeps the bit seated in the screw head." },
-        { q: "What is the risk of missing panel fasteners?", options: ["None", "Stress concentration and panel loss in flight", "Higher fuel cost only"], correct: 1, info: "Missing fasteners cause the remaining ones to take too much load, leading to failure." },
-        { q: "How do you identify the correct screw type for a panel?", options: ["Guess by size", "Refer to the IPC (Illustrated Parts Catalog)", "Use what was there before"], correct: 1, info: "The IPC lists the exact part number and length required." },
-        { q: "What is a 'captive' fastener?", options: ["A fastener that stays attached to the panel when loosened", "A fastener that is locked", "A heavy bolt"], correct: 0, info: "Captive fasteners prevent loss of hardware and FOD." },
-        { q: "What should you check for on the panel edges?", options: ["Sharpness", "Corrosion and cracks", "Paint color"], correct: 1, info: "Edges are high-stress areas prone to corrosion and fatigue." },
-        { q: "If a panel is 'interchangeable', it means...", options: ["It fits any aircraft", "It can be swapped with the same part number on another aircraft", "It has no serial number"], correct: 1, info: "Interchangeable parts are manufactured to tolerances that allow direct swapping." },
-        { q: "Why is it important to count fasteners upon removal?", options: ["For fun", "To ensure none are left in the engine/intake (FOD)", "To order new ones"], correct: 1, info: "Fastener accountability is a critical part of FOD prevention." },
-        { q: "What must be done to the surface before applying new sealant?", options: ["Nothing", "Clean with an approved solvent (e.g., MEK)", "Paint it"], correct: 1, info: "Surfaces must be chemically clean for the sealant to bond correctly." },
-    
-        // LUBRICATION PRINCIPLES (20 Qs)
-        { q: "What is the main purpose of lubrication?", options: ["To keep parts clean", "To reduce friction and wear", "To increase heat"], correct: 1, info: "Lubrication creates a film between moving parts to prevent metal-on-metal contact." },
-        { q: "What happens if you mix two different types of grease?", options: ["They work better", "They may chemically react and lose properties", "Nothing"], correct: 1, info: "Mixing can cause the grease to thin out or harden, leading to component failure." },
-        { q: "Why must flight control lubricants work at low temperatures?", options: ["To prevent rust", "To prevent freezing/jamming at high altitude", "To save weight"], correct: 1, info: "At -50C, the wrong grease can become solid, jamming the controls." },
         { q: "What tool is used to apply grease to a zerk fitting?", options: ["A brush", "A grease gun", "A spray can"], correct: 1, info: "Grease guns provide the pressure needed to force lubricant into bearings." },
-        { q: "What should you do with the 'old' grease that is pushed out?", options: ["Leave it there", "Wipe it away to prevent dirt buildup", "Rub it back in"], correct: 1, info: "Old grease acts as a magnet for dirt and FOD; it must be removed." },
         { q: "What is 'galling'?", options: ["A type of paint", "Surface damage caused by friction/heat", "A cleaning method"], correct: 1, info: "Galling occurs when metal surfaces 'cold weld' together due to lack of lube." },
-        { q: "Synthetic lubricants are preferred because...", options: ["They are cheaper", "They have better stability at extreme temperatures", "They smell better"], correct: 1, info: "Synthetic oils maintain their viscosity better across the wide range of aviation temperatures." },
-        { q: "How do you know which grease to use?", options: ["By its color", "Refer to the Lubrication Chart in the AMM", "Ask a friend"], correct: 1, info: "The AMM specifies the exact lubricant for every part." },
-        { q: "Over-greasing a bearing can cause...", options: ["Better cooling", "Overheating and seal damage", "Increased speed"], correct: 1, info: "Too much grease prevents heat dissipation and can blow out protective seals." },
-        { q: "What is a 'Zerk'?", options: ["A type of engine", "A lubrication fitting", "A bolt head"], correct: 1, info: "A Zerk (or grease nipple) is the interface for the grease gun." },
-        { q: "Lube 'intervals' are based on...", options: ["Flight hours or calendar days", "When the part looks dry", "The mechanic's choice"], correct: 0, info: "Maintenance schedules dictate exactly when lubrication is required." },
-        { q: "Which lubricant is used for high-load, slow-moving parts?", options: ["Thin oil", "Heavy grease", "Water"], correct: 1, info: "Heavy grease stays in place better under high pressure." },
-        { q: "Molybdenum Disulphide (Moly) is added to grease for...", options: ["Color", "Extreme pressure (EP) protection", "Rust prevention"], correct: 1, info: "Moly provides solid lubrication even if the oil base fails." },
-        { q: "What safety PPE is vital when using high-pressure grease guns?", options: ["Earplugs", "Eye protection and gloves", "Safety harness"], correct: 1, info: "Grease can be injected under the skin (injection injury), which is a medical emergency." },
-        { q: "What should be done to a grease nipple before attaching the gun?", options: ["Paint it", "Wipe it clean", "Loosen it"], correct: 1, info: "Wiping prevent pushing dirt into the bearing along with the new grease." },
-        { q: "Solid lubricants include graphite and...", options: ["Teflon (PTFE)", "Butter", "Copper"], correct: 0, info: "PTFE and graphite provide lubrication without the need for liquid oil." },
-        { q: "Why is oil used in gearboxes instead of grease?", options: ["It's cheaper", "It circulates to carry away heat", "It doesn't leak"], correct: 1, info: "Oil circulation is essential for cooling high-speed gears." },
-        { q: "A 'Dry Film' lubricant is used where...", options: ["The part is hot", "Oil/Grease would attract too much dust/sand", "The part is submerged"], correct: 1, info: "Dry films are used in dusty environments (like landing gear slides)." },
-        { q: "Lubricant 'viscosity' refers to...", options: ["Color", "Resistance to flow (thickness)", "Weight"], correct: 1, info: "High viscosity means thick oil; low viscosity means thin oil." },
-        { q: "What is the risk of using 'expired' grease?", options: ["None", "The base oil may have separated from the thickener", "It turns into water"], correct: 1, info: "Grease has a shelf life; once the oil separates, the lubricant is useless." },
-    
-        // SURFACE FINISHING AND PROTECTION (20 Qs)
-        { q: "What is the primary reason for painting an aircraft?", options: ["To look good", "Corrosion protection", "To increase speed"], correct: 1, info: "Paint provides the primary barrier between the metal and corrosive elements." },
-        { q: "How are vinyl decals removed?", options: ["Sanding", "Cloth with MEK and a plastic scraper", "Burning them off"], correct: 1, info: "MEK softens the adhesive, allowing the decal to be scraped away safely." },
-        { q: "What is the first step in painting an entire aircraft?", options: ["Apply topcoat", "Surface preparation/Paint removal", "Wash with water"], correct: 1, info: "Preparation is the most critical step for a lasting finish." },
-        { q: "Why must you protect windows before chemical stripping?", options: ["To keep them clean", "The chemicals will craze or dissolve the acrylic", "To prevent paint on them"], correct: 1, info: "Paint stripper is highly aggressive and will ruin aircraft windows instantly." },
-        { q: "What hazard is associated with inhaling paint mist?", options: ["Good smell", "Respiratory and internal organ damage", "None"], correct: 1, info: "Atomized paint contains toxic chemicals that require air-fed respirators." },
-        { q: "Primer is used primarily for...", options: ["Color", "Promoting adhesion and inhibiting corrosion", "Making the aircraft heavy"], correct: 1, info: "Primer 'bites' into the metal and provides a base for the topcoat." },
-        { q: "What is 'Alodine' or 'Chromating'?", options: ["A type of paint", "A chemical conversion coating for corrosion resistance", "A cleaning soap"], correct: 1, info: "Conversion coatings provide a thin layer of protection on bare aluminum." },
-        { q: "High-solids paints are used because they...", options: ["Are cheap", "Have lower VOC emissions and better coverage", "Dry slower"], correct: 1, info: "High-solids paints are more environmentally friendly and durable." },
-        { q: "What causes 'orange peel' in a paint finish?", options: ["Actual oranges", "Poor spray technique or incorrect thinning", "The sun"], correct: 1, info: "Orange peel is a texture defect where the paint doesn't flow out smoothly." },
-        { q: "Why is paint stripped for major inspections?", options: ["To change the color", "To allow for crack and corrosion inspection of the skin", "To save weight only"], correct: 1, info: "Removing paint is the only way to reliably inspect the underlying metal." },
-        { q: "What tool is used to measure paint thickness?", options: ["A ruler", "A dry film thickness (DFT) gauge", "A scale"], correct: 1, info: "DFT gauges use magnetism or eddy currents to measure the paint layer." },
-        { q: "A 'Tack Rag' is used for...", options: ["Cleaning tools", "Removing dust from a surface just before painting", "Applying oil"], correct: 1, info: "Tack rags are sticky cloths that grab fine dust particles." },
-        { q: "What does MEK stand for?", options: ["Methyl Ethyl Ketone", "Major Engineering Kit", "Metal Engine Key"], correct: 0, info: "MEK is a powerful solvent used for cleaning and adhesive removal." },
-        { q: "Why are static ports masked before painting?", options: ["To keep them silver", "To prevent blockage which would crash the aircraft", "They don't need masking"], correct: 1, info: "Blocked static ports lead to incorrect airspeed and altitude readings." },
-        { q: "What is 'Polyurethane' paint known for?", options: ["Being soft", "Extreme durability and chemical resistance", "Low cost"], correct: 1, info: "Polyurethane is the standard topcoat for its high gloss and toughness." },
-        { q: "Surface preparation often involves 'scuff sanding' to...", options: ["Remove metal", "Provide a mechanical key for the new paint", "Clean dirt"], correct: 1, info: "Sanding creates microscopic scratches that the paint can hold onto." },
-        { q: "What is the 'Pot Life' of a two-part paint?", options: ["The life of the bucket", "The time the mixed paint remains usable", "The time it takes to dry"], correct: 1, info: "Once mixed, chemical curing starts; you must use the paint before it hardens in the gun." },
-        { q: "Water-break tests are used to check for...", options: ["Leaks", "Surface cleanliness/grease presence", "Paint dryness"], correct: 1, info: "If water beads up, the surface is still contaminated with oil or grease." },
-        { q: "Which organization regulates the disposal of paint waste?", options: ["The Pilot", "Environmental agencies (like the EPA)", "The Stores"], correct: 1, info: "Paint and solvents are hazardous waste and must be disposed of legally." },
-        { q: "What is the purpose of the 'wash primer'?", options: ["To wash the aircraft", "To provide a very thin etch-prime layer on bare metal", "To replace the topcoat"], correct: 1, info: "Wash primers use acid to etch the surface for maximum adhesion." }
-        ];
+
+        // SURFACE FINISHING
+        { q: "How are vinyl decals removed?", options: ["Sanding", "Cloth with MEK and a plastic scraper", "Burning them off"], correct: 1, info: "MEK softens the adhesive, allowing safe removal with a plastic scraper." },
+        { q: "What is the purpose of a 'Tack Rag'?", options: ["Cleaning tools", "Removing dust just before painting", "Applying oil"], correct: 1, info: "Tack rags grab fine dust particles before the paint is applied." }
+    ];
 
     let currentIdx = 0;
     let score = 0;
@@ -253,7 +151,7 @@
         }
     }
 
-    // Initialize the quiz
+    // Start the quiz when the page loads
     window.onload = loadQuestion;
 </script>
 
