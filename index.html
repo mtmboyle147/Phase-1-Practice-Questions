@@ -286,22 +286,18 @@
             ];
 
 
-    // This will hold our selection of 30 random questions
-    let quizPool = [];
+let quizPool = [];
     let currentIdx = 0;
     let score = 0;
+    let currentCorrectIndex = null; // Track the new position of the correct answer
 
     function initializeQuiz() {
-        // 1. Clone the array so we don't destroy the original data
+        // 1. Shuffle and pick 30 questions from the 220
         let shuffled = [...allQuestions];
-        
-        // 2. Fisher-Yates Shuffle Algorithm
         for (let i = shuffled.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
         }
-        
-        // 3. Select the first 30 questions from the shuffled list
         quizPool = shuffled.slice(0, 30);
         
         currentIdx = 0;
@@ -310,19 +306,41 @@
     }
 
     function loadQuestion() {
-        const q = quizPool[currentIdx]; // Use the random pool
+        const qData = quizPool[currentIdx];
+        
+        // UI Updates
         document.getElementById("current-num").innerText = currentIdx + 1;
         document.getElementById("total-num").innerText = quizPool.length;
-        document.getElementById("q-text").innerText = q.q;
+        document.getElementById("q-text").innerText = qData.q;
         document.getElementById("progress-fill").style.width = (currentIdx / quizPool.length * 100) + "%";
         
+        // --- RANDOMIZE OPTIONS ---
+        // Create an array of indices [0, 1, 2]
+        let optionIndices = qData.options.map((_, index) => index);
+        
+        // Shuffle the indices
+        for (let i = optionIndices.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [optionIndices[i], optionIndices[j]] = [optionIndices[j], optionIndices[i]];
+        }
+
         const list = document.getElementById("options-list");
         list.innerHTML = "";
-        q.options.forEach((opt, i) => {
+
+        // Re-map the options based on the shuffled indices
+        optionIndices.forEach((originalIndex, displayIndex) => {
+            // Check if this specific option was the original correct one
+            if (originalIndex === qData.correct) {
+                currentCorrectIndex = displayIndex; 
+            }
+
             const div = document.createElement("div");
             div.className = "option";
-            div.innerHTML = `<input type="radio" name="answer" id="opt${i}" value="${i}"><label for="opt${i}">${opt}</label>`;
-            div.onclick = () => { document.getElementById(`opt${i}`).checked = true; };
+            div.innerHTML = `
+                <input type="radio" name="answer" id="opt${displayIndex}" value="${displayIndex}">
+                <label for="opt${displayIndex}">${qData.options[originalIndex]}</label>
+            `;
+            div.onclick = () => { document.getElementById(`opt${displayIndex}`).checked = true; };
             list.appendChild(div);
         });
 
@@ -336,16 +354,18 @@
         if (!selected) return alert("Select an answer!");
 
         const userVal = parseInt(selected.value);
-        const q = quizPool[currentIdx]; // Use the random pool
+        const qData = quizPool[currentIdx];
         const feedback = document.getElementById("feedback-area");
 
-        if (userVal === q.correct) {
+        // Compare user selection to our tracked currentCorrectIndex
+        if (userVal === currentCorrectIndex) {
             score++;
             feedback.className = "feedback correct-msg";
-            feedback.innerText = "CORRECT! " + q.info;
+            feedback.innerText = "CORRECT! " + qData.info;
         } else {
             feedback.className = "feedback wrong-msg";
-            feedback.innerText = "INCORRECT. Answer: " + q.options[q.correct] + ". " + q.info;
+            // Show the text of the correct answer from the original data
+            feedback.innerText = "INCORRECT. The correct answer is: " + qData.options[qData.correct] + ". " + qData.info;
         }
 
         feedback.style.display = "block";
@@ -365,7 +385,6 @@
         }
     }
 
-    // Call initializeQuiz instead of loadQuestion on start
     window.onload = initializeQuiz;
 </script>
 
